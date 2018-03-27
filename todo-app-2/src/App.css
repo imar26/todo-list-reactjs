@@ -1,0 +1,53 @@
+.App {
+    text-align: center;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.required {
+    color: red;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 6px;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Asap Condensed', sans-serif;
+    font-weight: 700;
+}
+
+div {
+    position: relative;
+}
+
+a {
+    float: right;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
