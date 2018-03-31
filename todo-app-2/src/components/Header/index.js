@@ -7,7 +7,7 @@ export default class Header extends React.Component {
 			<header id="header" className="clearfix">
 		        <nav className="menu">
 		            <div className="left-header">
-		                <span>TechCrat&apos;s Todo List</span>
+		                <span>TechCrat&apos;s Todo List - React JS</span>
 		            </div>
 		            <div className="right-header">
 		                <span>

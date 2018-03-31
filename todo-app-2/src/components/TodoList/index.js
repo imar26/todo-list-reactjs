@@ -1,6 +1,6 @@
 import React from 'react';
 import './TodoList.css';
-import TodoListItem from './TodoListItem';
+import TodoListItem from '../TodoListItem/';
 
 export default class TodoList extends React.Component {
 	constructor(props) {
@@ -52,11 +52,11 @@ export default class TodoList extends React.Component {
 		                    <label htmlFor="title">
 		                        Title <span className="required">*</span>
 		                    </label>
-		                    <input type="text" id="title" name="title" ref="title" required="required" />
+		                    <input type="text" id="title" name="title" ref="title" required />
 		                    <label htmlFor="todoItem">
 		                        Todo Item <span className="required">*</span>
 		                    </label>
-		                    <textarea id="todoItem" name="todoItem" rows="3" ref="todoItem" required="required"></textarea>
+		                    <textarea id="todoItem" name="todoItem" rows="3" ref="todoItem" required></textarea>
 		                    <label htmlFor="author">
 		                        Author <span className="required">*</span>
 		                    </label>
@@ -70,7 +70,7 @@ export default class TodoList extends React.Component {
 		                    <label htmlFor="date">
 		                        Date <span className="required">*</span>
 		                    </label>
-		                    <input type="date" id="date" name="date" ref="date" required="required" />
+		                    <input type="date" id="date" name="date" ref="date" required />
 		                    <input type="hidden" id="todoId" name="todoId" value="" />
 		                    <input type="submit" name="action" value="Add Todo Item" id="addBtn" />
 		                    <input type="submit" name="action" value="Update Todo Item" id="updateBtn" />
