@@ -36,6 +36,8 @@ const todos = [{
     }
 ];
 
+const authors = ["Aadesh", "Bhumika", "Rohit", "Meven", "Li"];
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -43,11 +45,17 @@ class App extends Component {
       todos
     }
   }
+  createTodo(todo) {
+    this.state.todos.push(todo);
+    this.setState({
+      todos: this.state.todos
+    });
+  }
   render() {
     return (
       <div className="App">
         <Header />
-        <TodoList todos={todos} />              
+        <TodoList todos={todos} authors={authors} createTodo={this.createTodo.bind(this)} />              
         <Footer />
       </div>
     );

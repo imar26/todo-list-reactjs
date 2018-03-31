@@ -4,8 +4,33 @@ import TodoListItem from './TodoListItem';
 
 export default class TodoList extends React.Component {
 	constructor(props) {
-        super(props);
-    }
+		super(props);
+		
+		this.state = {
+			success: false,
+			error: false,
+			message: ''
+		};
+	}
+	getTodo(event) {
+		event.preventDefault();
+		var todo = {
+			title: this.refs.title.value,
+			todoItem: this.refs.todoItem.value,
+			author: this.refs.author.value,
+			date: this.refs.date.value
+		};
+		this.props.createTodo(todo);
+		document.getElementById("todoListForm").reset();
+		this.setState({
+			success: true		
+		});
+		setTimeout(() => {
+			this.setState({
+				success: false
+			});
+		}, 2500);
+	}
 	render() {
 		return(
 			<div id="mainContent" className="mainContent">
@@ -23,33 +48,34 @@ export default class TodoList extends React.Component {
 		            </div>
 		            <div className="right-section">
 		                <h2>Add/Update Todo Item</h2>
-		                <form method="post" id="todoListForm">
+		                <form method="post" id="todoListForm" onSubmit={this.getTodo.bind(this)}>
 		                    <label htmlFor="title">
 		                        Title <span className="required">*</span>
 		                    </label>
-		                    <input type="text" id="title" name="title" required="required" />
+		                    <input type="text" id="title" name="title" ref="title" required="required" />
 		                    <label htmlFor="todoItem">
 		                        Todo Item <span className="required">*</span>
 		                    </label>
-		                    <textarea id="todoItem" name="todoItem" rows="3" required="required"></textarea>
+		                    <textarea id="todoItem" name="todoItem" rows="3" ref="todoItem" required="required"></textarea>
 		                    <label htmlFor="author">
 		                        Author <span className="required">*</span>
 		                    </label>
-		                    <select id="author" name="author">
-		                        <option value="Aadesh">Aadesh</option>
-		                        <option value="Bhumika">Bhumika</option>
-		                        <option value="Rohit">Rohit</option>
-		                        <option value="Meven">Meven</option>
-		                        <option value="Li">Li</option>
+		                    <select id="author" name="author" ref="author">
+		                    	{
+		                    		this.props.authors.map((author, i) => {
+		                    			return <option value={author} key={i}>{author}</option>
+		                    		})
+		                    	}
 		                    </select>
 		                    <label htmlFor="date">
 		                        Date <span className="required">*</span>
 		                    </label>
-		                    <input type="date" id="date" name="date" required="required" />
+		                    <input type="date" id="date" name="date" ref="date" required="required" />
 		                    <input type="hidden" id="todoId" name="todoId" value="" />
 		                    <input type="submit" name="action" value="Add Todo Item" id="addBtn" />
 		                    <input type="submit" name="action" value="Update Todo Item" id="updateBtn" />
 		                </form>
+						<h4 className={`success ${this.state.success ? 'visible' : 'hide'}`}>Todo Item added successfully.</h4>
 		            </div>
 		        </div>
     		</div>
