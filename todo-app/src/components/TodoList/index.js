@@ -19,8 +19,8 @@ export default class TodoList extends React.Component {
 		if(this.refs.todoId.value) {
 			for(let i=0; i<this.props.todos.length; i++) {
 				if(this.props.todos[i].todoId == this.refs.todoId.value) {
-					this.props.todos[i].title = this.refs.title.value;
-					this.props.todos[i].todoItem = this.refs.todoItem.value;
+					this.props.todos[i].title = this.refs.title.value.trim();
+					this.props.todos[i].todoItem = this.refs.todoItem.value.trim();
 					this.props.todos[i].author = this.refs.author.value;
 					this.props.todos[i].date = this.refs.date.value;
 					document.getElementById("todoListForm").reset();
@@ -46,8 +46,8 @@ export default class TodoList extends React.Component {
 		} else {
 			var todo = {
 				todoId: Math.floor(Math.random() * 100000000),
-				title: this.refs.title.value,
-				todoItem: this.refs.todoItem.value,
+				title: this.refs.title.value.trim(),
+				todoItem: this.refs.todoItem.value.trim(),
 				author: this.refs.author.value,
 				date: this.refs.date.value
 			};
@@ -64,11 +64,9 @@ export default class TodoList extends React.Component {
 		}
 	}
 	checkObject() {
-		console.log('Came here');
 		let flag = false;
 		for(let i=0; i<this.props.todos.length; i++) {
 			if(this.props.todos[i].title == this.refs.title.value && this.props.todos[i].todoItem == this.refs.todoItem.value && this.props.todos[i].author == this.refs.author.value && this.props.todos[i].date == this.refs.date.value) {
-				console.log('Came here now');
 				flag = true;
 				break;
 			}
@@ -88,7 +86,7 @@ export default class TodoList extends React.Component {
 	render() {
 		if(this.props.todos.length > 0) {
 			return(
-				<div id="mainContent" className="mainContent" ref="MainContent">
+				<div id="mainContent" className="mainContent">
 					<h1>Welcome to TechCrat&apos;s Todo List</h1>
 					<div className="clearfix">
 						<div className="left-section">
