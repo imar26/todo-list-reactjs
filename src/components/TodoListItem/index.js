@@ -2,9 +2,6 @@ import React from 'react';
 import moment from 'moment';
 
 export default class TodoListItem extends React.Component {
-	constructor(props) {
-		super(props);
-	}
 	editTodo(todo) {
 		this.props.editTodoItem(todo);
 	}

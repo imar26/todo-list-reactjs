@@ -18,7 +18,7 @@ export default class TodoList extends React.Component {
 		event.preventDefault();
 		if(this.refs.todoId.value) {
 			for(let i=0; i<this.props.todos.length; i++) {
-				if(this.props.todos[i].todoId == this.refs.todoId.value) {
+				if(this.props.todos[i].todoId === this.refs.todoId.value) {
 					this.props.todos[i].title = this.refs.title.value.trim();
 					this.props.todos[i].todoItem = this.refs.todoItem.value.trim();
 					this.props.todos[i].author = this.refs.author.value;
@@ -66,7 +66,7 @@ export default class TodoList extends React.Component {
 	checkObject() {
 		let flag = false;
 		for(let i=0; i<this.props.todos.length; i++) {
-			if(this.props.todos[i].title == this.refs.title.value && this.props.todos[i].todoItem == this.refs.todoItem.value && this.props.todos[i].author == this.refs.author.value && this.props.todos[i].date == this.refs.date.value) {
+			if(this.props.todos[i].title === this.refs.title.value && this.props.todos[i].todoItem === this.refs.todoItem.value && this.props.todos[i].author === this.refs.author.value && this.props.todos[i].date === this.refs.date.value) {
 				flag = true;
 				break;
 			}
